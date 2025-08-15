@@ -1,0 +1,6 @@
+-target cb_2022_us_state_20m
+-each "var m={'CT':'New England','ME':'New England','MA':'New England','NH':'New England','RI':'New England','VT':'New England','DE':'Mideast','DC':'Mideast','MD':'Mideast','NJ':'Mideast','NY':'Mideast','PA':'Mideast','IL':'Great Lakes','IN':'Great Lakes','MI':'Great Lakes','OH':'Great Lakes','WI':'Great Lakes','IA':'Plains','KS':'Plains','MN':'Plains','MO':'Plains','NE':'Plains','ND':'Plains','SD':'Plains','AL':'Southeast','AR':'Southeast','FL':'Southeast','GA':'Southeast','KY':'Southeast','LA':'Southeast','MS':'Southeast','NC':'Southeast','SC':'Southeast','TN':'Southeast','VA':'Southeast','WV':'Southeast','AZ':'Southwest','NM':'Southwest','OK':'Southwest','TX':'Southwest','CO':'Rocky Mountain','ID':'Rocky Mountain','MT':'Rocky Mountain','UT':'Rocky Mountain','WY':'Rocky Mountain','AK':'Far West','CA':'Far West','HI':'Far West','NV':'Far West','OR':'Far West','WA':'Far West'}; bea_region = m[String(STUSPS).trim()] || ''"
+-filter bea_region!=''
+-dissolve bea_region
+-proj wgs84
+-o format=geojson precision=0.0001 force bea_regions_wgs84.geojson
